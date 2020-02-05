@@ -1,9 +1,11 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from '../components/screens/HomeScreen';
+import FBLogin from '../components/screens/FBLogin';
 
 const RootStack = createStackNavigator({
     HomeScreen: {screen: HomeScreen},
+    FBLogin: {screen: FBLogin}
 
  },{
     initialRouteName: 'HomeScreen', //initial Display Page is HomeScreen
