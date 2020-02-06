@@ -1,0 +1,1 @@
+export const url='https://react-native-case-api.firebaseapp.com';
