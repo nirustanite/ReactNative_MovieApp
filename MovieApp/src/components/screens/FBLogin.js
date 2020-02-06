@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
 import { LoginButton, AccessToken } from 'react-native-fbsdk';
+import { getToken, fbLogout } from '../../actions/authactions';
+import { connect } from 'react-redux';
+import { withNavigation } from 'react-navigation';
 
-export default class FBLogin extends Component {
+class FBLogin extends Component {
   render() {
+    console.log("navigation", this.props.navigation)
     return (
       <View>
         <LoginButton
@@ -17,13 +21,18 @@ export default class FBLogin extends Component {
                 AccessToken.getCurrentAccessToken().then(
                   (data) => {
                     console.log(data.accessToken.toString())
+                    const token = data.accessToken.toString()
+                    this.props.getToken(token)
+                    this.props.navigation.navigate('MovieListScreen')
                   }
                 )
               }
             }
           }
-          onLogoutFinished={() => console.log("logout.")}/>
+          />
       </View>
     );
   }
 };
+
+export default connect(null,{ getToken, fbLogout })(withNavigation(FBLogin))
