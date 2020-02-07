@@ -1,12 +1,15 @@
-import { AUTH_TOKEN, FB_LOGOUT} from '../actions/authactions';
+import { AUTH_TOKEN, LOGOUT} from '../actions/authactions';
+
 
 const inittialstate = null;
 
 export default (state = inittialstate, action) => {
     switch (action.type) {
       case AUTH_TOKEN:
+        console.log("token",action.token)
         return action.token;
-      case FB_LOGOUT:
+      case LOGOUT:
+        console.log("state",state)
         return inittialstate
       default:
         return state;

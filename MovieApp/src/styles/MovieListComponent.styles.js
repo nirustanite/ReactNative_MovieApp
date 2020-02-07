@@ -9,24 +9,27 @@ export default StyleSheet.create({
       justifyContent: 'flex-start',
       borderRadius: 5,
       padding: 10,
-      height: 160,
-      borderRadius: 2,
-      borderTopLeftRadius: 2,
-      borderStyle: 'solid'
+      height: 130,
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    cardcontainer:{
+      padding: 0
     },
     itemName: {
-      fontSize: 10,
+      fontSize: 15,
       fontWeight: 'bold',
-      textAlign: 'center'
+      textAlign: 'left'
     },
     itemCode: {
       fontWeight: '600',
-      fontSize: 9,
-      textAlign: 'center'
+      fontSize: 12,
+      textAlign: 'left'
     },
     image: {
-      height: 70,
-     
-    }
+      flex:1,
+      height: '100%',
+      width: '100%'
+    },
 });
    

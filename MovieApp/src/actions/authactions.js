@@ -1,15 +1,15 @@
 
 
-export const acessToken = (token) => {
+const acessToken = (token) => {
     return{
         type: 'AUTH_TOKEN',
         token
     }
 }
 
-export const fbLogout = () => {
+const logoutuser = () => {
     return{
-        type: 'FB_LOGOUT'
+        type: 'LOGOUT'
     }
 }
 
@@ -18,5 +18,10 @@ export const getToken = (token) => (dispatch) => {
     dispatch(acessToken(token))
 }
 
+export const logout = () => (dispatch) => {
+    console.log("hello")
+    dispatch(logoutuser())
+}
+
 export const AUTH_TOKEN = 'AUTH_TOKEN';
-export const FB_LOGOUT = 'FB_LOGOUT';
+export const LOGOUT = 'LOGOUT';

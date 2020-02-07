@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
 import { Header } from 'react-native-elements';
 import { connect } from 'react-redux';
-import { View, Text } from 'react-native';
-import { Left, Right, Icon } from 'native-base';
-
+import { View, Text, Image } from 'react-native';
+import LeftComponent from './LeftComponent';
+import RightComponent from './RightComponent';
 import styles from '../styles/HeaderComponent.styles';
+
 
 class HeaderComponent extends Component{
     render(){
         return(
             <React.Fragment>
                 {this.props.token !== null ? <Header
-                    leftComponent={{icon: 'menu', style:{color: '#000'}}}
+                    leftComponent={<LeftComponent />}
                     centerComponent={<Text style={styles.title}>Movies</Text>}
-                    containerStyle={{ backgroundColor: 'rgb(255,255,255)', justifyContent: 'space-around' }}>
+                    containerStyle={{ backgroundColor: 'rgb(255,255,255)', justifyContent: 'space-around' }}
+                    rightComponent={<RightComponent />}
+                    >
                 </Header>: <Header
                     centerComponent={<Text style={styles.title}>sign in by email</Text>}
                     containerStyle={{ backgroundColor: 'rgb(255,255,255)', justifyContent: 'space-around' }}>
