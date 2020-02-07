@@ -5,11 +5,12 @@ import FBLogin from './FBLogin';
 import { connect } from 'react-redux';
 import MovieListScreen from './MovieListScreen';
 
+
 class HomeScreen extends Component{
     render(){
         return(
             <>
-             {this.props.token !== null ? <View style={styles.container}>
+             {this.props.token === null ? <View style={styles.container}>
                     <View style={styles.imagecontainer}>
                         <Image style={styles.iconimage} source={require('../../images/icon.png')} />
                     </View>
@@ -30,3 +31,4 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(HomeScreen)
+
