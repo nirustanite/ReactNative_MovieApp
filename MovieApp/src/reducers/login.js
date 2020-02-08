@@ -6,11 +6,9 @@ const inittialstate = null;
 export default (state = inittialstate, action) => {
     switch (action.type) {
       case AUTH_TOKEN:
-        console.log("token",action.token)
-        return action.token;
+        return action.payload;
       case LOGOUT:
-        console.log("state",state)
-        return inittialstate
+         return action.payload
       default:
         return state;
     }

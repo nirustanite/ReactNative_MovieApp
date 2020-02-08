@@ -3,25 +3,32 @@
 const acessToken = (token) => {
     return{
         type: 'AUTH_TOKEN',
-        token
+        payload: token
     }
 }
 
 const logoutuser = () => {
     return{
-        type: 'LOGOUT'
+        type: 'LOGOUT',
+        payload: null
     }
 }
 
-
 export const getToken = (token) => (dispatch) => {
-    dispatch(acessToken(token))
-}
+   dispatch(acessToken(token))
+} 
 
 export const logout = () => (dispatch) => {
-    console.log("hello")
     dispatch(logoutuser())
 }
+
+
+export const signInemail = (data) => ({
+    apiCall: true,
+    path:'/auth/login',
+    body: data,
+    successType: AUTH_TOKEN,
+})
 
 export const AUTH_TOKEN = 'AUTH_TOKEN';
 export const LOGOUT = 'LOGOUT';

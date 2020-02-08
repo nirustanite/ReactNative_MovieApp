@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
-import { View, Button } from 'react-native';
+import { View, Button} from 'react-native';
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import { getToken, fbLogout } from '../../actions/authactions';
 import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation';
+import AsyncStorage from '@react-native-community/async-storage';
+
 
 
 class FBLogin extends Component {
+
+  storeData = async (token) => {
+    try {
+      await AsyncStorage.setItem('accesstoken', token);
+    } catch (error) {
+      console.log("no Token")
+    }
+  };
 
   handlePress = () => {
     LoginManager.logInWithPermissions(["public_profile"]).then(
@@ -18,7 +28,8 @@ class FBLogin extends Component {
           AccessToken.getCurrentAccessToken().then(
             (data) => {
               const token = data.accessToken.toString()
-              this.props.getToken(token)
+              this.storeData(token)
+
             }
           )
         }
@@ -32,7 +43,6 @@ class FBLogin extends Component {
   }
 
   render() {
-    console.log("navigation", this.props.navigation)
     return (
       <View>
           <Button title="sign in with facebook" 

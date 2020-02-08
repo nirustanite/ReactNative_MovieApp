@@ -5,7 +5,7 @@ import { withNavigation } from 'react-navigation';
 class LeftComponent extends Component{
 
     handlePress = () => {
-        this.props.navigation.navigate('SearchComponent')
+        this.props.navigation.navigate('SearchScreen')
     }
 
     render() {

@@ -3,11 +3,23 @@ import { withNavigation } from 'react-navigation';
 import {TouchableOpacity, Text} from 'react-native';
 import {logout} from '../actions/authactions';
 import {connect} from 'react-redux';
+import AsyncStorage from '@react-native-community/async-storage';
+
 
 class RightComponent extends Component{
 
+
+   removeData = async () => {
+        try {
+          await AsyncStorage.removeItem('accesstoken');
+        } catch (error) {
+           console.error(error)
+        }
+      };
+
     handlePress = () => {
         this.props.logout();
+        this.removeData();
         this.props.navigation.navigate('HomeScreen')
     }   
 
@@ -20,4 +32,9 @@ class RightComponent extends Component{
     }
 }
 
-export default connect(null,{logout})(withNavigation(RightComponent))
+const mapStateToProps = (state) => {
+    return{
+        login: state.login
+    }
+}
+export default connect(mapStateToProps,{logout})(withNavigation(RightComponent))

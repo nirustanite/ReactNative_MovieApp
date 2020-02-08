@@ -8,7 +8,9 @@ import styles from '../styles/HeaderComponent.styles';
 
 
 class HeaderComponent extends Component{
+    
     render(){
+        console.log(this.props.token)
         return(
             <React.Fragment>
                 {this.props.token !== null ? <Header

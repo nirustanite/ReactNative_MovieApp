@@ -1,17 +1,24 @@
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import SplashScreen from '../components/screens/SplashScreen';
 import HomeScreen from '../components/screens/HomeScreen';
 import FBLogin from '../components/screens/FBLogin';
+import SignInScreen from '../components/screens/SignInScreen';
 import MovieListScreen from '../components/screens/MovieListScreen';
-import SearchComponent from '../components/screens/SearchComponent';
+import SearchScreen from '../components/screens/SearchScreen';
+import DetailsScreen from '../components/screens/DetailsScreen';
 
 const RootStack = createStackNavigator({
+    SplashScreen: {screen: SplashScreen},
     HomeScreen: {screen: HomeScreen},
     FBLogin: {screen: FBLogin},
+    SignInScreen: {screen: SignInScreen},
     MovieListScreen: {screen: MovieListScreen},
-    SearchComponent: {screen: SearchComponent}
+    DetailsScreen: {screen: DetailsScreen},
+    SearchScreen: {screen: SearchScreen},
+    
  },{
-    initialRouteName: 'HomeScreen', //initial Display Page is HomeScreen
+    initialRouteName: 'SplashScreen', //initial Display Page is HomeScreen
     headerMode: 'none' 
 });
 
