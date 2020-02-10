@@ -1,22 +1,21 @@
-import React,{Component}from 'react';
-import { View } from 'react-native';
+import React, { Component } from 'react';
 import AppContainer from './src/navigation/navigation';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import store from './store';
 
 
 export default class App extends Component {
 
-  render(){
+  render() {
     return (
       <>
         <Provider store={store}>
-              <AppContainer />
+          <AppContainer />
         </Provider>
       </>
     );
   }
-  
+
 };
 
 

@@ -1,5 +1,5 @@
 import request from "superagent";
-import {url} from '../../constants';
+import { url } from '../../constants';
 
 export const API_LOADING = "@API/LOADING";
 export const API_DONE = "@API/DONE";
@@ -18,14 +18,13 @@ const defaults = {
 
 export default store => next => action => {
   if (!action.apiCall) {
-    // This is not for me, passing along
     return next(action);
   }
 
-  const requestAction = { ...defaults, ...action};
+  const requestAction = { ...defaults, ...action };
 
   const token = store.getState().login;
-  const {method, path, body} = requestAction;
+  const { method, path, body } = requestAction;
 
   const auth = token
     ? `Bearer ${token}`

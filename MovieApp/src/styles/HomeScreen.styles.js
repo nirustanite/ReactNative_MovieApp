@@ -1,27 +1,27 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-    container:{
+    container: {
         flex: 1,
         backgroundColor: 'white',
         alignItems: 'center',
     },
-   
-    imagecontainer:{
+
+    imagecontainer: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center'
     },
 
-    iconimage:{
+    iconimage: {
         width: 100,
         height: 100,
-        marginTop: 50   
+        marginTop: 50
     },
-    bottom:{
+    bottom: {
         flex: 1,
         justifyContent: 'flex-end',
-        marginBottom: 36
+        marginBottom: 36,
     }
 })

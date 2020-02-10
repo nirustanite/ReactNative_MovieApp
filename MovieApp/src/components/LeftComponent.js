@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
-import {View, Image, TouchableOpacity } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import styles from '../styles/LeftComponent.styles';
 
-class LeftComponent extends Component{
+
+// displaying the search icon 
+class LeftComponent extends Component {
 
     handlePress = () => {
         this.props.navigation.navigate('SearchScreen')
     }
 
     render() {
-       return(
-        <React.Fragment>
-            <TouchableOpacity onPress={this.handlePress}>
-                <Image
-                    source={require('../images/searchicon.png')}
-                    style={{ width: 40, height: 40, borderRadius: 40/2, marginLeft: 15}}
-                />
-            </TouchableOpacity>
-        </React.Fragment>
+        return (
+            <React.Fragment>
+                <TouchableOpacity onPress={this.handlePress}>
+                    <Image
+                        source={require('../images/searchicon.png')}
+                        style={styles.imagecontainer}
+                    />
+                </TouchableOpacity>
+            </React.Fragment>
         )
     }
 }
 
 export default withNavigation(LeftComponent)
+
