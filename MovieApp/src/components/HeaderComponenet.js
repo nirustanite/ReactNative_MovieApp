@@ -6,24 +6,19 @@ import LeftComponent from './LeftComponent';
 import RightComponent from './RightComponent';
 import styles from '../styles/HeaderComponent.styles';
 
+// Displaying the header in the movie list page
+class HeaderComponent extends Component {
 
-class HeaderComponent extends Component{
-    
-    render(){
-        console.log(this.props.token)
-        return(
+    render() {
+        return (
             <React.Fragment>
-                {this.props.token !== null ? <Header
+                {this.props.token !== null && <Header
                     leftComponent={<LeftComponent />}
                     centerComponent={<Text style={styles.title}>Movies</Text>}
                     containerStyle={{ backgroundColor: 'rgb(255,255,255)', justifyContent: 'space-around' }}
                     rightComponent={<RightComponent />}
-                    >
-                </Header>: <Header
-                    centerComponent={<Text style={styles.title}>sign in by email</Text>}
-                    containerStyle={{ backgroundColor: 'rgb(255,255,255)', justifyContent: 'space-around' }}>
-                </Header>}
-                <View style={styles.container}/>
+                />}
+                <View style={styles.container} />
             </React.Fragment>
         )
     }
@@ -31,14 +26,10 @@ class HeaderComponent extends Component{
 }
 
 const mapStateToProps = (state) => {
-    return{
+    return {
         token: state.token
     }
 }
 
 export default connect(mapStateToProps)(HeaderComponent)
 
-
-//{ text: 'Movies', style: { color: '#000', fontSize: 20, fontWeight: 'bold' } }
-
-//{ text: 'sign in by email', style:{ color: '#000', fontSize: 20, fontWeight: 'bold'} }
