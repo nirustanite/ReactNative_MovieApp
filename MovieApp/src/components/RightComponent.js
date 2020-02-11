@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { withNavigation } from 'react-navigation';
 import { TouchableOpacity, Text } from 'react-native';
 import { logout } from '../actions/authactions';
+import { LoginManager } from 'react-native-fbsdk';
 import { connect } from 'react-redux';
-import AsyncStorage from '@react-native-community/async-storage';
+import { clearData } from '../storagefunction';
 
 // logout functionality
 class RightComponent extends Component {
@@ -17,9 +18,10 @@ class RightComponent extends Component {
     };
 
     handlePress = () => {
+        LoginManager.logOut();
         this.props.logout();
-        this.removeData();
-        this.props.navigation.navigate('HomeScreen')
+        clearData();
+        this.props.navigation.navigate('HomeScreen');
     }
 
     render() {

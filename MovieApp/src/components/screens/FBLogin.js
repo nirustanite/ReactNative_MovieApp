@@ -4,26 +4,30 @@ import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import { getToken } from '../../actions/authactions';
 import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation'; // to provide navigation to this component
-import { storeData } from '../../storagefunction';
+import { storeData, clearData } from '../../storagefunction';
 
 // Facebook Login
 class FBLogin extends Component {
 
   handlePress = () => {
+    clearData();
+    LoginManager.logOut();
     LoginManager.logInWithPermissions(["public_profile"]).then(
       (result) => {
         if (result.isCancelled) {
-          console.log("Login cancelled");
+            clearData();
+            LoginManager.logOut();
         }
         else {
           AccessToken.getCurrentAccessToken().then(
             (data) => {
               const token = data.accessToken.toString()
               storeData(token)
+              this.props.navigation.navigate('MovieListScreen')
             }
           )
         }
-        this.props.navigation.navigate('MovieListScreen')
+       
       },
       (error) => {
         console.error(error)
